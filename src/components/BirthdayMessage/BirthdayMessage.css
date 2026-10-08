@@ -1,0 +1,70 @@
+.birthday-message-container {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+.message-card {
+  width: 100%;
+  max-width: 680px;
+  padding: 3.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 240, 245, 0.06);
+  border-radius: var(--radius-lg);
+}
+
+.message-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 133, 161, 0.12);
+  border: 1px solid rgba(255, 133, 161, 0.25);
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+}
+
+.typewriter-area {
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.typed-text {
+  font-size: 2.5rem;
+  color: var(--color-text-main);
+  line-height: 1.4;
+  text-shadow: 0 0 20px var(--color-glow);
+}
+
+.blinking-cursor {
+  display: inline-block;
+  color: var(--color-primary);
+  font-weight: bold;
+  animation: cursorBlink 0.9s infinite;
+  margin-left: 4px;
+}
+
+.message-actions {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .message-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .typed-text {
+    font-size: 1.85rem;
+  }
+}

@@ -1,0 +1,31 @@
+:root {
+  /* Dynamic Theme Colors (Injected from config or overridden via CSS) */
+  --color-primary: #FF6584;
+  --color-primary-hover: #ff476e;
+  --color-secondary: #FF85A1;
+  --color-accent: #FFD166;
+  --color-bg-dark: #0F0C1B;
+  --color-bg-card: rgba(255, 240, 245, 0.06);
+  --color-bg-card-hover: rgba(255, 240, 245, 0.12);
+  --color-border-glass: rgba(255, 255, 255, 0.15);
+  --color-text-main: #FFF0F5;
+  --color-text-muted: rgba(255, 240, 245, 0.7);
+  --color-glow: rgba(255, 101, 132, 0.4);
+
+  /* Fonts */
+  --font-romantic: 'Dancing Script', 'Playfair Display', cursive, serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Shadows & Glass */
+  --glass-backdrop: blur(16px) saturate(180%);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.37);
+  --glow-shadow: 0 0 25px var(--color-glow);
+
+  /* Radius & Transitions */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}

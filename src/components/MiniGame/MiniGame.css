@@ -1,0 +1,109 @@
+.mini-game-section {
+  width: 100%;
+}
+
+.game-header {
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 680px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255, 240, 245, 0.04);
+}
+
+.game-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+}
+
+.gameplay-viewport {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: radial-gradient(circle at center, rgba(30, 20, 45, 0.8) 0%, rgba(15, 12, 27, 0.95) 100%);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.falling-hearts-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.falling-heart {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  filter: drop-shadow(0 0 10px currentColor);
+  transition: transform 0.1s ease;
+}
+
+.falling-heart:active {
+  transform: scale(1.3);
+}
+
+.game-overlay-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 1.25rem;
+  background: rgba(15, 12, 27, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.heart-pulse-icon {
+  animation: pulseGlow 2s infinite;
+}
+
+.victory-title {
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+}
+
+.reward-msg {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  max-width: 480px;
+}
+
+.start-game-btn, .play-again-btn {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .gameplay-viewport {
+    height: 340px;
+  }
+  .victory-title {
+    font-size: 1.85rem;
+  }
+}
