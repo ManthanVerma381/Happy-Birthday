@@ -62,3 +62,16 @@
 .chapter-dot-btn:hover .dot-tooltip {
   opacity: 1;
 }
+
+@media (max-width: 480px) {
+  .floating-chapter-nav {
+    top: 1rem;
+    left: 1rem;
+    transform: none;
+  }
+  .chapter-dots-glass {
+    padding: 0.35rem 0.75rem;
+    gap: 0.5rem;
+  }
+}
+
