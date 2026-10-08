@@ -8,7 +8,7 @@ class AudioManager {
     this.volume = 0.4;
   }
 
-  init(bgMusicPath = '/assets/music/birthday.mp3', initialVolume = 0.4) {
+  init(bgMusicPath = '/assets/music/Pehli_Dafa.mp3', initialVolume = 0.4) {
     this.volume = initialVolume;
     if (typeof window !== 'undefined') {
       // Check stored mute preference
@@ -17,11 +17,16 @@ class AudioManager {
         this.isMuted = storedMute === 'true';
       }
 
-      this.bgAudio = new Audio(bgMusicPath);
+      let cleanPath = bgMusicPath;
+      if (cleanPath.startsWith('/')) {
+        const baseUrl = import.meta.env.BASE_URL || './';
+        cleanPath = (baseUrl.endsWith('/') ? baseUrl : baseUrl + '/') + cleanPath.slice(1);
+      }
+
+      this.bgAudio = new Audio(cleanPath);
       this.bgAudio.loop = true;
       this.bgAudio.volume = this.isMuted ? 0 : this.volume;
 
-      // Silently handle error if background music file doesn't exist
       this.bgAudio.addEventListener('error', (e) => {
         console.warn('Background music track not found or failed to load. Sound synthesis active.', e);
       });
@@ -43,13 +48,17 @@ class AudioManager {
   }
 
   startBgMusic() {
-    if (this.bgAudio && !this.bgMusicStarted) {
+    if (this.bgAudio) {
       this.getAudioContext();
-      this.bgAudio.play().then(() => {
-        this.bgMusicStarted = true;
-      }).catch(err => {
-        console.warn('Autoplay prevented or music file missing:', err);
-      });
+      this.bgAudio.volume = this.isMuted ? 0 : this.volume;
+      const playPromise = this.bgAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          this.bgMusicStarted = true;
+        }).catch(err => {
+          console.warn('Autoplay prevented or music file missing:', err);
+        });
+      }
     }
   }
 
@@ -60,6 +69,9 @@ class AudioManager {
     }
     if (this.bgAudio) {
       this.bgAudio.volume = this.isMuted ? 0 : this.volume;
+      if (!this.isMuted) {
+        this.startBgMusic();
+      }
     }
     return this.isMuted;
   }

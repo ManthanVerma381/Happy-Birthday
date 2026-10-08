@@ -193,7 +193,7 @@ export const birthdayConfig = {
 
   // Background Music & Audio Settings
   music: {
-    background: "/assets/music/Pehli Dafa.mp3",
+    background: "/assets/music/Pehli_Dafa.mp3",
     enabled: true,
     volume: 0.4
   },
